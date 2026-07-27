@@ -1,0 +1,5 @@
+# Browser fallback: someone without the neon app taps a sticker and lands
+# here. Bounce them to the marketing pitch page on argon. 302 on purpose —
+# this domain is frozen for years and a 301 would let browsers cache the
+# target forever.
+/t/*  https://lazytax.club/t/:splat  302

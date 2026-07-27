@@ -1,0 +1,9 @@
+# Universal/App Links verification files. Apple requires application/json
+# (the AASA file has no extension so it would default to octet-stream); short
+# cache so entitlement changes propagate quickly.
+/.well-known/apple-app-site-association
+  Content-Type: application/json
+  Cache-Control: public,max-age=3600
+
+/.well-known/assetlinks.json
+  Cache-Control: public,max-age=3600

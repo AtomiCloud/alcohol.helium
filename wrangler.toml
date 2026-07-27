@@ -1,0 +1,16 @@
+# t.lazytax.club — the permanent NFC tag domain.
+# One landscape-agnostic (arceus) worker: physical stickers are locked with
+# t.lazytax.club/t/{id} URLs forever, so this domain must never change or
+# break. No environments — the installed app flavor is the env selector.
+name = "helium-alcohol-arceus"
+compatibility_date = "2025-06-01"
+
+[assets]
+directory = "public"
+
+[[routes]]
+pattern = "t.lazytax.club"
+custom_domain = true
+
+[observability]
+enabled = true
