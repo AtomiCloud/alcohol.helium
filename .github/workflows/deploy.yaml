@@ -16,3 +16,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # wrangler-action defaults to wrangler 3.90, which predates
+          # _redirects/_headers support for Workers static assets: it uploads
+          # them as plain files, so /t/* stops redirecting.
+          wranglerVersion: '4'
