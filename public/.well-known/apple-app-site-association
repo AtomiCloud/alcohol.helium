@@ -12,10 +12,6 @@
           {
             "/": "/t/*",
             "comment": "NFC habit tags: open the neon app to resolve and complete the linked habit"
-          },
-          {
-            "/": "/f/*",
-            "comment": "Friend invites: open the neon app to accept the invite"
           }
         ]
       }
