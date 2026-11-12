@@ -3,8 +3,3 @@
 # this domain is frozen for years and a 301 would let browsers cache the
 # target forever.
 /t/*  https://lazytax.club/t/:splat  302
-
-# Friend invite links (t.lazytax.club/f/{code}) for people without the app:
-# argon's invite page, which also carries the link-preview (Open Graph) tags
-# that WhatsApp, Messages and others show when the link is shared.
-/f/*  https://lazytax.club/f/:splat  302
