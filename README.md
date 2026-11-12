@@ -14,9 +14,10 @@ and each landscape's zinc resolves tag ids against its own database.
 
 | Path | Purpose |
 |---|---|
-| `/.well-known/apple-app-site-association` | iOS Universal Links — lets the neon app claim `/t/*` taps. **This is the only home of this file.** |
+| `/.well-known/apple-app-site-association` | iOS Universal Links — lets the neon app claim `/t/*` taps and `/f/*` invite links. **This is the only home of this file.** |
 | `/.well-known/assetlinks.json` | Android App Links — same, for the 3 flavor packages |
 | `/t/*` | 302 → `https://lazytax.club/t/…` — browser fallback for phones without the app (argon's marketing pitch page). 302 not 301 so the target stays changeable. |
+| `/f/*` | 302 → `https://lazytax.club/f/…` — friend invite links. With the app they open neon to accept the invite; without it, argon's invite page (with the link-preview tags). |
 
 App-installed taps never hit this worker at tap time — iOS/Android route to the
 app locally from the verification files fetched at install/update.
