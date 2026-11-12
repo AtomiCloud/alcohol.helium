@@ -20,3 +20,20 @@ jobs:
           # _redirects/_headers support for Workers static assets: it uploads
           # them as plain files, so /t/* stops redirecting.
           wranglerVersion: '4'
+      # Smoke test the live domain. The NFC stickers' URLs can never change,
+      # so fail loudly if a deploy breaks the fallback or the app-link files.
+      - name: Check the live domain
+        run: |
+          set -euo pipefail
+          sleep 20
+          base=https://t.lazytax.club
+          check() { # path, expected status, expected Location prefix
+            read -r code loc < <(curl -s -o /dev/null -w '%{http_code} %{redirect_url}\n' "$base$1?smoke=$GITHUB_RUN_ID")
+            echo "$1 -> $code $loc"
+            [ "$code" = "$2" ] && [[ "$loc" == "$3"* ]]
+          }
+          check /t/smoketest 302 https://lazytax.club/t/smoketest
+          check /f/smoketest 302 https://lazytax.club/f/smoketest
+          aasa=$(curl -sf "$base/.well-known/apple-app-site-association")
+          for p in '/t/*' '/f/*'; do echo "$aasa" | jq -e --arg p "$p" '[.applinks.details[].components[]."/"] | index($p)' >/dev/null; done
+          curl -sf "$base/.well-known/assetlinks.json" | jq -e 'length == 3' >/dev/null
