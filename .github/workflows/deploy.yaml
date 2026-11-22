@@ -36,4 +36,4 @@ jobs:
           check /f/smoketest 302 https://lazytax.club/f/smoketest
           aasa=$(curl -sf "$base/.well-known/apple-app-site-association")
           for p in '/t/*' '/f/*'; do echo "$aasa" | jq -e --arg p "$p" '[.applinks.details[].components[]."/"] | index($p)' >/dev/null; done
-          curl -sf "$base/.well-known/assetlinks.json" | jq -e 'length == 3' >/dev/null
+          curl -sf "$base/.well-known/assetlinks.json" | jq -e 'length == 6' >/dev/null
