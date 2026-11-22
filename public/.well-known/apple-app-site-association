@@ -6,7 +6,10 @@
         "appIDs": [
           "MNPSXJP9PN.cloud.atomi.pichu.alcohol.neon.app",
           "MNPSXJP9PN.cloud.atomi.pikachu.alcohol.neon.app",
-          "MNPSXJP9PN.cloud.atomi.raichu.alcohol.neon.app"
+          "MNPSXJP9PN.cloud.atomi.raichu.alcohol.neon.app",
+          "65MNKVTTH4.cloud.durian.pichu.alcohol.neon.app",
+          "65MNKVTTH4.cloud.durian.pikachu.alcohol.neon.app",
+          "65MNKVTTH4.cloud.durian.raichu.alcohol.neon.app"
         ],
         "components": [
           {
